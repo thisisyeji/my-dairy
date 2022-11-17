@@ -6,6 +6,7 @@ import MyButton from './MyButton';
 import styled from 'styled-components';
 import { AiFillHome } from 'react-icons/ai';
 import { GoBook } from 'react-icons/go';
+import { GoPencil } from 'react-icons/go';
 
 const activeStyle = {
 	color: 'white',
@@ -18,22 +19,26 @@ const deactiveStyle = {
 
 const NavWrapper = styled.nav`
 	width: 100%;
+	height: 100px;
+	background-color: white;
 	position: fixed;
 	top: 0;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	left: 0;
+	z-index: 5;
 
 	.content {
 		width: 650px;
+		height: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 20px;
+		margin: 0 auto;
 
 		ul {
 			display: flex;
+			justify-content: center;
+			align-items: center;
 			gap: 20px;
 			li {
 				a {
@@ -47,6 +52,11 @@ const NavWrapper = styled.nav`
 
 					svg {
 						font-size: 26px;
+						transition: 0.3s;
+
+						&:hover {
+							transform: scale(1.1);
+						}
 					}
 				}
 			}
@@ -82,6 +92,15 @@ const Nav = () => {
 								return isActive ? activeStyle : deactiveStyle;
 							}}>
 							<GoBook />
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to='/new'
+							style={({ isActive }) => {
+								return isActive ? activeStyle : deactiveStyle;
+							}}>
+							<GoPencil />
 						</NavLink>
 					</li>
 				</ul>
